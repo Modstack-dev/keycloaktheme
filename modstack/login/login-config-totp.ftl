@@ -22,7 +22,7 @@
 
     <#-- Manual secret key -->
     <div class="ms-totp-secret">
-      <p style="font-size:13px;color:#afa5bd;margin-bottom:8px;">Or enter this key manually:</p>
+      <p style="font-size:13px;color:#888888;margin-bottom:8px;">Or enter this key manually:</p>
       <code>${totp.totpSecretEncoded}</code>
     </div>
 

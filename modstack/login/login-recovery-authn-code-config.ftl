@@ -19,7 +19,7 @@
       </button>
     </div>
 
-    <p style="font-size:13px;color:#5a5168;text-align:center;margin-bottom:24px;">Each code can only be used once. You will not see these again.</p>
+    <p style="font-size:13px;color:#888888;text-align:center;margin-bottom:24px;">Each code can only be used once. You will not see these again.</p>
 
     <form action="${url.loginAction}" method="post">
       <input type="hidden" name="generatedRecoveryAuthnCodes" value="${recoveryAuthnCodesConfigBean.generatedRecoveryAuthnCodesAsString}">

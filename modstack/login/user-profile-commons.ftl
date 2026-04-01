@@ -24,12 +24,12 @@
 						<#else>
 							<#assign groupHeaderText=group.name!"">
 						</#if>
-						<label class="ms-label" style="font-size:16px;font-weight:600;color:#ffffff;margin-bottom:12px;">${groupHeaderText}</label>
+						<label class="ms-label" style="font-size:16px;font-weight:600;color:#1a1a1a;margin-bottom:12px;">${groupHeaderText}</label>
 
 						<#assign groupDisplayDescription=group.displayDescription!"">
 						<#if groupDisplayDescription != "">
 							<#assign groupDescriptionText=advancedMsg(groupDisplayDescription)!"">
-							<p style="font-size:13px;color:#8a7a9e;margin-bottom:12px;">${groupDescriptionText}</p>
+							<p style="font-size:13px;color:#888888;margin-bottom:12px;">${groupDescriptionText}</p>
 						</#if>
 					</div>
 				</#if>
@@ -39,7 +39,7 @@
 			<div class="ms-form-group">
 				<label for="${attribute.name}">${advancedMsg(attribute.displayName!'')}<#if attribute.required> <span class="ms-required">*</span></#if></label>
 				<#if attribute.annotations.inputHelperTextBefore??>
-					<p style="font-size:12px;color:#8a7a9e;margin-bottom:6px;">${kcSanitize(advancedMsg(attribute.annotations.inputHelperTextBefore))?no_esc}</p>
+					<p style="font-size:12px;color:#888888;margin-bottom:6px;">${kcSanitize(advancedMsg(attribute.annotations.inputHelperTextBefore))?no_esc}</p>
 				</#if>
 				<@inputFieldByType attribute=attribute/>
 				<#if messagesPerField.existsError('${attribute.name}')>
@@ -48,7 +48,7 @@
 					</div>
 				</#if>
 				<#if attribute.annotations.inputHelperTextAfter??>
-					<p style="font-size:12px;color:#8a7a9e;margin-top:6px;">${kcSanitize(advancedMsg(attribute.annotations.inputHelperTextAfter))?no_esc}</p>
+					<p style="font-size:12px;color:#888888;margin-top:6px;">${kcSanitize(advancedMsg(attribute.annotations.inputHelperTextAfter))?no_esc}</p>
 				</#if>
 			</div>
 			<#nested "afterField" attribute>
@@ -134,7 +134,7 @@
 </#macro>
 
 <#macro selectTag attribute>
-	<select id="${attribute.name}" name="${attribute.name}" class="ms-input" style="cursor:pointer;appearance:none;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23afa5bd' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E&quot;);background-repeat:no-repeat;background-position:right 14px center;padding-right:40px;"
+	<select id="${attribute.name}" name="${attribute.name}" class="ms-input" style="cursor:pointer;appearance:none;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E&quot;);background-repeat:no-repeat;background-position:right 14px center;padding-right:40px;"
 	aria-invalid="<#if messagesPerField.existsError('${attribute.name}')>true</#if>"
 	<#if attribute.readOnly>disabled</#if>
 	<#if attribute.annotations.inputType=='multiselect'>multiple</#if>

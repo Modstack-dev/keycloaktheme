@@ -19,7 +19,7 @@
       </div>
     </div>
 
-    <p style="font-size:14px;color:#8a7a9e;margin-bottom:28px;">You will be signed out of your ModStack account and will need to sign in again to continue.</p>
+    <p style="font-size:14px;color:#888888;margin-bottom:28px;">You will be signed out of your account and will need to sign in again to continue.</p>
 
     <form action="${url.logoutConfirmAction}" method="post">
       <input type="hidden" name="session_code" value="${logoutConfirm.code}">

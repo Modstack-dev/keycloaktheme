@@ -1,149 +1,57 @@
-/* ==========================================================
-   ModStack – Keycloak Login Theme
-   Split-panel layout · ModStack dark palette
-   ========================================================== */
+/* ================================================================
+   Keycloak Login Theme — Clean B&W with accent
+   Font: Plus Jakarta Sans
+   ================================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
-/* ── Reset & Base ──────────────────────────────────────── */
-
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+/* ── Reset & Base ─────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html, body {
   height: 100%;
-}
-
-body {
-  font-family: "Outfit", -apple-system, BlinkMacSystemFont, sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.5;
-  color: #ffffff;
-  background: #1b1029;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #ffffff;
+  color: #1a1a1a;
 }
 
-a {
-  color: #9660db;
-  text-decoration: none;
-  transition: color 0.2s;
-}
+a { color: #1a1a1a; text-decoration: none; font-weight: 500; transition: color .15s; }
+a:hover { color: #555555; }
 
-a:hover {
-  color: #ab80e2;
-}
-
-/* ── Split Layout ──────────────────────────────────────── */
-
+/* ── Split Layout ─────────────────────────────────────────────── */
 .ms-split {
   display: grid;
   grid-template-columns: 1fr 1fr;
   min-height: 100vh;
 }
-
 .ms-split--single {
   grid-template-columns: 1fr;
 }
 
-/* ── Left Panel (Marketing) ────────────────────────────── */
-
+/* ── Left: Pattern Panel ──────────────────────────────────────── */
 .ms-panel {
-  background: #1a0e2e;
-  border-right: 1px solid rgba(150, 96, 219, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 48px 40px;
   position: relative;
   overflow: hidden;
+  background: #333333;
 }
 
-/* Flowing wave shapes */
-.ms-panel__waves {
+.ms-panel__pattern {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  pointer-events: none;
+  opacity: 1;
 }
 
-/* Radial glows */
-.ms-panel__glow {
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-}
-
-.ms-panel__glow--top {
-  top: -15%;
-  right: -10%;
-  width: 55%;
-  height: 45%;
-  background: radial-gradient(circle, rgba(150, 96, 219, 0.18) 0%, transparent 70%);
-}
-
-.ms-panel__glow--bottom {
-  bottom: -10%;
-  left: -15%;
-  width: 60%;
-  height: 50%;
-  background: radial-gradient(circle, rgba(110, 60, 190, 0.14) 0%, transparent 70%);
-}
-
-/* Content layer */
-.ms-panel__inner {
-  position: relative;
-  z-index: 1;
-  max-width: 420px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  min-height: 480px;
-}
-
-/* Hero text positioned slightly above center */
-.ms-panel__hero {
-  margin-top: auto;
-  margin-bottom: auto;
-  padding-bottom: 10%;
-}
-
-.ms-panel__headline {
-  font-size: 34px;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 16px;
-  color: #ffffff;
-}
-
-.ms-panel__brand-text {
-  color: #9660db;
-}
-
-.ms-panel__tagline {
-  font-size: 15px;
-  color: #8a7a9e;
-  line-height: 1.7;
-}
-
-.ms-panel__footer {
-  margin-top: 40px;
-  font-size: 12px;
-  color: #4a3d5c;
-}
-
-/* ── Right Panel (Form) ────────────────────────────────── */
-
+/* ── Right: Form Panel ────────────────────────────────────────── */
 .ms-form-panel {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 48px 40px;
+  padding: 48px;
+  background: #ffffff;
 }
 
 .ms-form-panel__inner {
@@ -152,339 +60,321 @@ a:hover {
 }
 
 .ms-form-panel__logo {
-  margin-bottom: 36px;
+  margin-bottom: 40px;
 }
-
-.ms-form-panel__logo img {
+.ms-form-panel__logo img,
+.ms-form-panel__logo svg {
   height: 28px;
   width: auto;
 }
 
-.ms-split--single .ms-form-panel__logo {
-  text-align: center;
-}
-
-/* ── Card header ───────────────────────────────────────── */
-
+/* ── Card Titles ──────────────────────────────────────────────── */
 .ms-card__title {
-  font-size: 24px;
-  font-weight: 600;
-  color: #ffffff;
+  font-size: 1.375rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #1a1a1a;
   margin-bottom: 6px;
+  line-height: 1.3;
 }
 
 .ms-card__subtitle {
-  font-size: 15px;
-  color: #afa5bd;
-  margin-bottom: 28px;
-}
-
-/* ── Alerts ────────────────────────────────────────────── */
-
-.ms-alert {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  padding: 14px 18px;
-  border-radius: 10px;
-  font-size: 14px;
-  margin-bottom: 20px;
+  font-size: 0.875rem;
+  color: #888888;
   line-height: 1.5;
+  margin-bottom: 32px;
 }
 
-.ms-alert::before {
-  flex-shrink: 0;
-  width: 18px;
-  height: 18px;
-  margin-top: 1px;
-}
-
-.ms-alert--error {
-  background: rgba(220, 53, 69, 0.06);
-  border: 1px solid rgba(220, 53, 69, 0.18);
-  color: #e8a0a8;
-}
-
-.ms-alert--error::before {
-  content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%23dc3545' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cline x1='15' y1='9' x2='9' y2='15'/%3E%3Cline x1='9' y1='9' x2='15' y2='15'/%3E%3C/svg%3E");
-}
-
-.ms-alert--success {
-  background: rgba(40, 167, 69, 0.06);
-  border: 1px solid rgba(40, 167, 69, 0.18);
-  color: #8fd4a4;
-}
-
-.ms-alert--success::before {
-  content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%2328a745' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 11.08V12a10 10 0 1 1-5.93-9.14'/%3E%3Cpolyline points='22 4 12 14.01 9 11.01'/%3E%3C/svg%3E");
-}
-
-.ms-alert--info {
-  background: rgba(150, 96, 219, 0.06);
-  border: 1px solid rgba(150, 96, 219, 0.15);
-  color: #c9b4e2;
-}
-
-.ms-alert--info::before {
-  content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%239660db' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cline x1='12' y1='16' x2='12' y2='12'/%3E%3Cline x1='12' y1='8' x2='12.01' y2='8'/%3E%3C/svg%3E");
-}
-
-.ms-alert--warning {
-  background: rgba(150, 96, 219, 0.04);
-  border: 1px solid rgba(150, 96, 219, 0.12);
-  color: #afa5bd;
-}
-
-.ms-alert--warning::before {
-  content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%239660db' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cline x1='12' y1='8' x2='12' y2='12'/%3E%3Cline x1='12' y1='16' x2='12.01' y2='16'/%3E%3C/svg%3E");
-}
-
-/* ── Form Elements ─────────────────────────────────────── */
-
+/* ── Form Elements ────────────────────────────────────────────── */
 .ms-form-group {
   margin-bottom: 20px;
 }
 
-.ms-form-group label,
-.ms-label {
+.ms-form-group label {
   display: block;
-  font-size: 14px;
-  font-weight: 500;
-  color: #afa5bd;
-  margin-bottom: 8px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 6px;
 }
-
-.ms-input {
-  width: 100%;
-  height: 46px;
-  padding: 0 16px;
-  background: rgba(150, 96, 219, 0.06);
-  border: 1px solid rgba(150, 96, 219, 0.2);
-  border-radius: 8px;
-  color: #ffffff;
-  font-family: "Outfit", sans-serif;
-  font-size: 15px;
-  outline: none;
-  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
-}
-
-.ms-input:focus {
-  border-color: #9660db;
-  background: rgba(150, 96, 219, 0.09);
-  box-shadow: 0 0 0 3px rgba(150, 96, 219, 0.15);
-}
-
-.ms-input::placeholder {
-  color: #5a5168;
-}
-
-.ms-input--error {
-  border-color: rgba(220, 53, 69, 0.5);
-}
-
-/* ── Password label row (label + forgot link) ──────────── */
 
 .ms-label-row {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  margin-bottom: 8px;
+  align-items: baseline;
+  margin-bottom: 6px;
 }
-
-.ms-label-row label {
-  margin-bottom: 0;
-}
-
+.ms-label-row label { margin-bottom: 0; }
 .ms-label-row a {
-  font-size: 13px;
+  font-size: 12px;
+  color: #888888;
   font-weight: 500;
-  color: #9660db;
+}
+.ms-label-row a:hover { color: #1a1a1a; }
+
+.ms-input {
+  display: block;
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 0.875rem;
+  font-family: inherit;
+  color: #1a1a1a;
+  background: #ffffff;
+  border: 1px solid #d4d4d4;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color .15s, box-shadow .15s;
+  line-height: 1.5;
+}
+.ms-input::placeholder { color: #b0b0b0; }
+.ms-input:focus {
+  border-color: #1a1a1a;
+  box-shadow: 0 0 0 3px rgba(0,0,0,0.06);
+}
+.ms-input--error {
+  border-color: #dc3b31 !important;
+  box-shadow: 0 0 0 3px rgba(220,59,49,0.08) !important;
 }
 
-/* ── Checkbox ──────────────────────────────────────────── */
+.ms-required { color: #dc3b31; font-weight: 600; }
 
+/* ── Checkbox ─────────────────────────────────────────────────── */
 .ms-checkbox {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
-
 .ms-checkbox input[type="checkbox"] {
-  width: 16px;
-  height: 16px;
-  accent-color: #9660db;
+  width: 16px; height: 16px;
+  accent-color: #1a1a1a;
   cursor: pointer;
-  flex-shrink: 0;
 }
-
 .ms-checkbox label {
-  font-size: 14px;
-  color: #afa5bd;
+  font-size: 13px;
+  color: #666666;
   cursor: pointer;
-  margin: 0;
+  margin-bottom: 0;
 }
 
-/* ── Buttons ───────────────────────────────────────────── */
-
+/* ── Buttons ──────────────────────────────────────────────────── */
 .ms-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 46px;
-  padding: 0 24px;
-  border: none;
-  border-radius: 8px;
-  font-family: "Outfit", sans-serif;
-  font-size: 15px;
+  display: block;
+  width: 100%;
+  padding: 11px 24px;
+  font-size: 0.875rem;
   font-weight: 600;
+  font-family: inherit;
+  border-radius: 6px;
+  border: none;
   cursor: pointer;
-  transition: all 0.25s;
+  transition: background .15s, transform .1s, box-shadow .15s;
   text-decoration: none;
+  line-height: 1.5;
 }
 
 .ms-btn--primary {
-  width: 100%;
+  background: #1a1a1a;
   color: #ffffff;
-  background: #9660db;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
-
 .ms-btn--primary:hover {
-  background: #ab80e2;
-  box-shadow: 0 2px 8px rgba(150, 96, 219, 0.4);
-  color: #ffffff;
+  background: #333333;
+}
+.ms-btn--primary:active {
+  transform: scale(0.985);
 }
 
 .ms-btn--ghost {
   background: transparent;
-  border: 1px solid rgba(150, 96, 219, 0.3);
-  color: #ffffff;
+  color: #666666;
+  border: 1px solid #d4d4d4;
 }
-
 .ms-btn--ghost:hover {
-  border-color: #9660db;
-  background: rgba(150, 96, 219, 0.08);
+  background: #fafafa;
+  color: #1a1a1a;
+  border-color: #b0b0b0;
 }
 
-.ms-btn--link {
-  background: none;
-  border: none;
-  color: #9660db;
-  padding: 0;
-  height: auto;
-  font-weight: 500;
+.ms-btn-row {
+  display: flex;
+  gap: 12px;
 }
+.ms-btn-row .ms-btn { flex: 1; text-align: center; }
 
-.ms-btn--link:hover {
-  color: #ab80e2;
-}
+/* ── Form Actions / Footer ────────────────────────────────────── */
+.ms-form-actions { margin-top: 28px; }
 
-/* ── Form actions ──────────────────────────────────────── */
-
-.ms-form-actions {
+.ms-form-footer {
   margin-top: 28px;
+  text-align: center;
+  font-size: 13px;
+  color: #888888;
+}
+.ms-form-footer a { color: #1a1a1a; font-weight: 600; }
+.ms-form-footer a:hover { color: #555555; }
+
+/* ── Alerts ───────────────────────────────────────────────────── */
+.ms-alert {
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+.ms-alert--error {
+  background: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+}
+.ms-alert--success {
+  background: #f0fdf4;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+.ms-alert--warning {
+  background: #fffbeb;
+  color: #92400e;
+  border: 1px solid #fde68a;
+}
+.ms-alert--info {
+  background: #f0f9ff;
+  color: #075985;
+  border: 1px solid #bae6fd;
 }
 
-/* ── Separator ─────────────────────────────────────────── */
-
+/* ── Separator ────────────────────────────────────────────────── */
 .ms-separator {
   display: flex;
   align-items: center;
   gap: 16px;
   margin: 28px 0;
-  color: #5a5168;
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 12px;
+  color: #b0b0b0;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
 }
-
 .ms-separator::before,
 .ms-separator::after {
-  content: "";
+  content: '';
   flex: 1;
   height: 1px;
-  background: rgba(150, 96, 219, 0.14);
+  background: #e5e5e5;
 }
 
-/* ── Social / Identity Providers ───────────────────────── */
-
+/* ── Social / Identity Providers ──────────────────────────────── */
 .ms-social-providers {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-
 .ms-social-btn {
+  display: block;
+  width: 100%;
+  padding: 11px 16px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a1a1a;
+  background: #ffffff;
+  border: 1px solid #d4d4d4;
+  border-radius: 6px;
+  transition: background .15s, border-color .15s;
+}
+.ms-social-btn:hover {
+  background: #fafafa;
+  border-color: #b0b0b0;
+}
+
+/* ── Back Link ────────────────────────────────────────────────── */
+.ms-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #888888;
+  font-weight: 500;
+}
+.ms-back-link:hover { color: #1a1a1a; }
+.ms-back-link svg { stroke: currentColor; }
+
+/* ── Verify Email Icon ────────────────────────────────────────── */
+.ms-verify-icon {
+  text-align: center;
+  margin-bottom: 28px;
+  color: #1a1a1a;
+}
+
+/* ── Error / Logout Headers ───────────────────────────────────── */
+.ms-error-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+.ms-error-header__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: #fef2f2;
+  color: #dc3b31;
+  margin-bottom: 16px;
+}
+.ms-error-header__title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.ms-logout-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.ms-logout-header__title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+}
+.ms-logout-header__desc {
+  font-size: 0.875rem;
+  color: #888888;
+}
+.ms-logout-header__icon {
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  width: 100%;
-  height: 46px;
-  background: rgba(150, 96, 219, 0.04);
-  border: 1px solid rgba(150, 96, 219, 0.2);
-  border-radius: 8px;
-  color: #ffffff;
-  font-family: "Outfit", sans-serif;
-  font-size: 15px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: border-color 0.2s, background 0.2s;
-  text-decoration: none;
+  width: 48px; height: 48px;
+  border-radius: 10px;
+  background: #f5f5f5;
+  color: #1a1a1a;
 }
 
-.ms-social-btn:hover {
-  border-color: rgba(150, 96, 219, 0.45);
-  background: rgba(150, 96, 219, 0.09);
-}
-
-/* ── Footer link ───────────────────────────────────────── */
-
-.ms-form-footer {
-  text-align: center;
-  margin-top: 32px;
-  font-size: 15px;
-  color: #afa5bd;
-}
-
-.ms-form-footer a {
-  color: #9660db;
-  font-weight: 600;
-}
-
-/* ── OTP / TOTP ────────────────────────────────────────── */
-
+/* ── OTP / TOTP Setup ─────────────────────────────────────────── */
 .ms-otp-info {
-  font-size: 14px;
-  color: #afa5bd;
   margin-bottom: 24px;
-  line-height: 1.7;
 }
-
 .ms-otp-info ol {
   padding-left: 20px;
-  margin-top: 12px;
-}
-
-.ms-otp-info li {
-  margin-bottom: 8px;
+  font-size: 13px;
+  color: #666666;
+  line-height: 1.8;
 }
 
 .ms-qr-code {
-  display: flex;
-  justify-content: center;
-  margin: 24px 0;
+  text-align: center;
+  margin-bottom: 20px;
   padding: 20px;
-  background: #ffffff;
-  border-radius: 12px;
-  width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
+  background: #fafafa;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
 }
-
 .ms-qr-code img {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
   display: block;
 }
 
@@ -492,495 +382,175 @@ a:hover {
   text-align: center;
   margin-bottom: 24px;
 }
-
 .ms-totp-secret code {
   display: inline-block;
-  padding: 10px 18px;
-  background: rgba(150, 96, 219, 0.06);
-  border: 1px solid rgba(150, 96, 219, 0.2);
-  border-radius: 8px;
-  font-family: "Outfit", monospace;
-  font-size: 14px;
-  color: #ffffff;
-  letter-spacing: 0.08em;
+  padding: 8px 16px;
+  background: #f5f5f5;
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+  font-size: 13px;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  color: #1a1a1a;
+  letter-spacing: 0.06em;
   word-break: break-all;
 }
 
-/* ── Email Verification ────────────────────────────────── */
-
-.ms-form-panel__inner--centered {
-  text-align: center;
-}
-
-.ms-card__title--centered {
-  text-align: center;
-}
-
-.ms-card__subtitle--centered {
-  text-align: center;
-}
-
-.ms-verify-icon {
-  width: 80px;
-  height: 80px;
-  margin: 0 auto 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(150, 96, 219, 0.08);
-  border: 1px solid rgba(150, 96, 219, 0.2);
-  border-radius: 50%;
-  color: #9660db;
-}
-
-.ms-verify-card {
-  background: rgba(150, 96, 219, 0.04);
-  border: 1px solid rgba(150, 96, 219, 0.12);
+/* ── Recovery Codes ───────────────────────────────────────────── */
+.ms-recovery-codes {
+  background: #fafafa;
+  border: 1px solid #e5e5e5;
   border-radius: 10px;
-  padding: 18px 20px;
-  margin-bottom: 28px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+  padding: 24px;
+  margin-bottom: 16px;
+  text-align: center;
 }
-
-.ms-verify-card__row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 14px;
-  color: #afa5bd;
-  text-align: left;
+.ms-recovery-codes__list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 16px;
 }
-
-.ms-verify-card__row svg {
-  flex-shrink: 0;
-  color: #9660db;
+.ms-recovery-codes__list li {
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 13px;
+  color: #1a1a1a;
+  padding: 6px 12px;
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  letter-spacing: 0.04em;
 }
-
-.ms-verify-message {
-  font-size: 15px;
-  color: #afa5bd;
-  line-height: 1.7;
-  margin-bottom: 28px;
-}
-
-.ms-verify-message strong {
-  color: #ffffff;
-}
-
-/* ── Inline row (two buttons side by side) ─────────────── */
-
-.ms-btn-row {
-  display: flex;
-  gap: 12px;
-}
-
-.ms-btn-row .ms-btn {
-  flex: 1;
-}
-
-/* ── Required asterisk ─────────────────────────────────── */
-
-.ms-required {
-  color: #9660db;
-  margin-left: 2px;
-}
-
-/* ── Back link ─────────────────────────────────────────── */
-
-.ms-back-link {
+.ms-recovery-codes__copy {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 14px;
+  padding: 7px 14px;
+  border: 1px solid #d4d4d4;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #666666;
+  font-size: 12px;
+  font-family: inherit;
   font-weight: 500;
-  color: #9660db;
-  margin-bottom: 28px;
+  cursor: pointer;
+  transition: background .15s, color .15s;
+}
+.ms-recovery-codes__copy:hover {
+  background: #f5f5f5;
+  color: #1a1a1a;
 }
 
-.ms-back-link:hover {
-  color: #ab80e2;
-}
-
-/* ── Auth Method Selector ──────────────────────────────── */
-
+/* ── Auth Method Selector ─────────────────────────────────────── */
 .ms-auth-methods {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
-
 .ms-auth-method {
   display: flex;
   align-items: center;
   gap: 16px;
   width: 100%;
-  padding: 16px 18px;
-  background: rgba(150, 96, 219, 0.04);
-  border: 1px solid rgba(150, 96, 219, 0.15);
-  border-radius: 10px;
+  padding: 14px 16px;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #1a1a1a;
   cursor: pointer;
-  transition: border-color 0.2s, background 0.2s;
+  transition: background .15s, border-color .15s;
+  font-family: inherit;
   text-align: left;
-  font-family: "Outfit", sans-serif;
-  color: #ffffff;
 }
-
 .ms-auth-method:hover {
-  border-color: rgba(150, 96, 219, 0.4);
-  background: rgba(150, 96, 219, 0.08);
+  background: #fafafa;
+  border-color: #b0b0b0;
 }
-
 .ms-auth-method__icon {
   flex-shrink: 0;
-  width: 44px;
-  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(150, 96, 219, 0.1);
-  border-radius: 10px;
-  color: #9660db;
+  width: 40px; height: 40px;
+  border-radius: 8px;
+  background: #f5f5f5;
+  color: #1a1a1a;
 }
-
-.ms-auth-method__text {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
+.ms-auth-method__text { flex: 1; }
 .ms-auth-method__title {
-  font-size: 15px;
-  font-weight: 600;
-  color: #ffffff;
-}
-
-.ms-auth-method__desc {
+  display: block;
   font-size: 13px;
-  color: #8a7a9e;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 2px;
 }
-
+.ms-auth-method__desc {
+  display: block;
+  font-size: 12px;
+  color: #888888;
+}
 .ms-auth-method__arrow {
   flex-shrink: 0;
-  color: #5a5168;
-  transition: color 0.2s;
+  color: #cccccc;
 }
 
-.ms-auth-method:hover .ms-auth-method__arrow {
-  color: #9660db;
-}
-
-/* ── Select input ──────────────────────────────────────── */
-
-select.ms-input {
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23afa5bd' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 14px center;
-  padding-right: 40px;
-  cursor: pointer;
-}
-
-select.ms-input option {
-  background: #221632;
-  color: #ffffff;
-}
-
-/* ── Alternate auth link ───────────────────────────────── */
-
-.ms-alt-auth {
-  text-align: center;
-}
-
+/* ── Alt Auth / Try Another Way ───────────────────────────────── */
+.ms-alt-auth { text-align: center; }
 .ms-alt-auth__link {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 14px;
-  font-weight: 500;
-  color: #9660db;
-  transition: color 0.2s;
-}
-
-.ms-alt-auth__link:hover {
-  color: #ab80e2;
-}
-
-/* ── Recovery Codes ─────────────────────────────────────── */
-
-.ms-recovery-codes {
-  background: rgba(150, 96, 219, 0.04);
-  border: 1px solid rgba(150, 96, 219, 0.12);
-  border-radius: 10px;
-  padding: 24px;
-  margin-bottom: 24px;
-  text-align: center;
-}
-
-.ms-recovery-codes__list {
-  list-style: none;
-  font-family: "Courier New", monospace;
-  font-size: 14px;
-  color: #c9bdd9;
-  line-height: 2;
-  letter-spacing: 0.06em;
-}
-
-.ms-recovery-codes__copy {
-  margin-top: 16px;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: none;
-  border: none;
-  color: #9660db;
-  font-family: "Outfit", sans-serif;
   font-size: 13px;
+  color: #888888;
   font-weight: 500;
-  cursor: pointer;
-  transition: color 0.2s;
 }
+.ms-alt-auth__link:hover { color: #1a1a1a; }
+.ms-alt-auth__link svg { stroke: currentColor; }
 
-.ms-recovery-codes__copy:hover {
-  color: #ab80e2;
-}
-
-/* ── Keycloak Base Theme Overrides ──────────────────────── */
-/* Styles Keycloak's default PatternFly form elements when  */
-/* the base theme renders fields via user-profile-commons    */
-
-.form-group {
-  margin-bottom: 20px;
-}
-
-.form-group label,
-.pf-c-form__label,
-.pf-c-form__label-text {
+/* ── PatternFly Overrides (Keycloak default components) ───────── */
+.pf-c-alert { display: none !important; }
+.pf-c-form-control {
   display: block;
-  font-size: 14px;
-  font-weight: 500;
-  color: #afa5bd;
-  margin-bottom: 8px;
-}
-
-.pf-c-form-control,
-.pf-c-form-control[type="text"],
-.pf-c-form-control[type="email"],
-.pf-c-form-control[type="password"] {
   width: 100%;
-  height: 46px;
-  padding: 0 16px;
-  background: rgba(150, 96, 219, 0.06);
-  border: 1px solid rgba(150, 96, 219, 0.2);
-  border-radius: 8px;
-  color: #ffffff;
-  font-family: "Outfit", sans-serif;
-  font-size: 15px;
+  padding: 10px 14px;
+  font-size: 0.875rem;
+  font-family: inherit;
+  color: #1a1a1a;
+  background: #ffffff;
+  border: 1px solid #d4d4d4;
+  border-radius: 6px;
   outline: none;
-  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
-  box-sizing: border-box;
+  transition: border-color .15s, box-shadow .15s;
 }
-
 .pf-c-form-control:focus {
-  border-color: #9660db;
-  background: rgba(150, 96, 219, 0.09);
-  box-shadow: 0 0 0 3px rgba(150, 96, 219, 0.15);
+  border-color: #1a1a1a;
+  box-shadow: 0 0 0 3px rgba(0,0,0,0.06);
 }
-
-.pf-c-form-control::placeholder {
-  color: #5a5168;
-}
-
-/* Password toggle button */
-.pf-c-input-group {
-  display: flex;
-  gap: 0;
-}
-
-.pf-c-input-group .pf-c-form-control {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  flex: 1;
-}
-
-.pf-c-input-group .pf-c-button.pf-m-control {
-  height: 46px;
-  padding: 0 14px;
-  background: rgba(150, 96, 219, 0.06);
-  border: 1px solid rgba(150, 96, 219, 0.2);
-  border-left: none;
-  border-radius: 0 8px 8px 0;
-  color: #afa5bd;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  transition: color 0.2s;
-}
-
-.pf-c-input-group .pf-c-button.pf-m-control:hover {
-  color: #9660db;
-}
-
-/* Submit button */
-.pf-c-button.pf-m-primary,
-input.pf-c-button.pf-m-primary {
+.pf-c-button.pf-m-primary {
+  background: #1a1a1a !important;
+  border: none !important;
+  border-radius: 6px !important;
+  padding: 11px 24px !important;
+  font-weight: 600 !important;
+  color: #ffffff !important;
   width: 100%;
-  height: 46px;
-  padding: 0 24px;
-  border: none;
-  border-radius: 8px;
-  font-family: "Outfit", sans-serif;
-  font-size: 15px;
-  font-weight: 600;
-  color: #ffffff;
-  background: #9660db;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  transition: all 0.25s;
-  margin-top: 8px;
 }
+.pf-c-button.pf-m-primary:hover { background: #333333 !important; }
 
-.pf-c-button.pf-m-primary:hover,
-input.pf-c-button.pf-m-primary:hover {
-  background: #ab80e2;
-  box-shadow: 0 2px 8px rgba(150, 96, 219, 0.4);
-  color: #ffffff;
-}
+/* Hide Keycloak default header/footer chrome */
+#kc-header-wrapper,
+#kc-locale,
+.kc-logo-text { display: none !important; }
 
-/* Back to login link */
-#kc-form-options a {
-  color: #9660db;
-  font-size: 14px;
-  font-weight: 500;
-  text-decoration: none;
-}
-
-#kc-form-options a:hover {
-  color: #ab80e2;
-}
-
-#kc-form-options {
-  margin-bottom: 16px;
-}
-
-/* Hide the asterisk that KC renders outside the label */
-.form-group .col-xs-12 > *:not(label):not(input):not(.pf-c-input-group):not(#kc-form-options):not(#kc-form-buttons) {
-  color: #9660db;
-  font-size: 13px;
-}
-
-/* ── Error header ──────────────────────────────────────── */
-
-.ms-error-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  margin-bottom: 24px;
-}
-
-.ms-error-header__icon {
-  flex-shrink: 0;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(220, 53, 69, 0.08);
-  border: 1px solid rgba(220, 53, 69, 0.18);
-  border-radius: 10px;
-  color: #dc3545;
-}
-
-.ms-error-header__title {
-  font-size: 22px;
-  font-weight: 600;
-  color: #ffffff;
-}
-
-/* ── Logout header ─────────────────────────────────────── */
-
-.ms-logout-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  margin-bottom: 20px;
-}
-
-.ms-logout-header__title {
-  font-size: 24px;
-  font-weight: 600;
-  color: #ffffff;
-  margin-bottom: 4px;
-}
-
-.ms-logout-header__desc {
-  font-size: 15px;
-  color: #afa5bd;
-}
-
-.ms-logout-header__icon {
-  flex-shrink: 0;
-  width: 52px;
-  height: 52px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(150, 96, 219, 0.08);
-  border: 1px solid rgba(150, 96, 219, 0.18);
-  border-radius: 12px;
-  color: #9660db;
-}
-
-/* ── Title with icon ────────────────────────────────────── */
-
-.ms-title-with-icon {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.ms-title-with-icon svg {
-  flex-shrink: 0;
-}
-
-/* ── Responsive ────────────────────────────────────────── */
-
+/* ── Responsive ───────────────────────────────────────────────── */
 @media (max-width: 960px) {
-  .ms-split {
-    grid-template-columns: 1fr;
-  }
-
-  .ms-panel {
-    display: none;
-  }
-
-  .ms-form-panel {
-    min-height: 100vh;
-  }
-
-  /* Show logo on form panel when marketing panel is hidden */
-  .ms-form-panel__logo--mobile {
-    display: block;
-    margin-bottom: 40px;
-    text-align: center;
-  }
-
-  .ms-form-panel__logo--mobile img {
-    height: 28px;
-    width: auto;
-  }
+  .ms-split { grid-template-columns: 1fr; }
+  .ms-panel { display: none; }
+  .ms-form-panel { min-height: 100vh; }
 }
 
 @media (max-width: 480px) {
-  .ms-form-panel {
-    padding: 32px 20px;
-  }
-
-  .ms-card__title {
-    font-size: 22px;
-  }
+  .ms-form-panel { padding: 32px 20px; }
+  .ms-card__title { font-size: 1.25rem; }
 }

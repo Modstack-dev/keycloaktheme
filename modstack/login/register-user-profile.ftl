@@ -6,7 +6,7 @@
   <#if section = "header">
     Create your account
   <#elseif section = "subtitle">
-    Get started with ${realm.displayName!'ModStack'}
+    Get started with ${realm.displayName!'your account'}
   <#elseif section = "form">
 
     <form id="kc-register-form" action="${url.registrationAction}" method="post">
